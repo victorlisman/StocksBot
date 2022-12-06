@@ -1,0 +1,46 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "Hello",
+                "How are you?",
+                "What's up?"
+            ],
+            "responses": [
+                "Hello!",
+                "Good day!",
+                "Nice to meet you!"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "See you later!",
+                "Thanks for coming!",
+                "Have a nice day!",
+                "See you soon!"
+            ]
+        },
+        {
+            "tag": "jokes",
+            "patterns": [
+                "Tell me a joke",
+                "Be funny",
+                "I want to hear a joke"
+            ],
+            "responses": [
+                "haha programmers aren't funny",
+                "1010111000",
+                "I don't know binary!"
+            ]
+        }
+    ]
+}
