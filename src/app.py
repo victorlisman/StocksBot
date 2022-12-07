@@ -7,7 +7,7 @@ async def handler(websocket):
             message = await websocket.recv()
         except websockets.ConnectionClosedOK:
             break
-        print(message)
+        print(str(message))
 
 async def main():
     async with websockets.serve(handler, "", 8001):
