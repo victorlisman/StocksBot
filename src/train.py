@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from utils import tokenize, stemming, bagOfWords
+from model import NeuralNet
 
 with open('./intents.json', 'r') as f:
     intents = json.load(f)
@@ -52,6 +53,17 @@ class StockBotDataset(Dataset):
         return self.numSamples
 
 batchSize = 8
+inputSize = len(X_train[0])
+hiddenSize = 8
+outputSize = len(tags)
+
+print(input, len(allWords))
+print(outputSize, tags)
 
 dataset = StockBotDataset()
 trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=2)
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
+
+#de facut learning rate si optimizer
