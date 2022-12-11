@@ -40,6 +40,18 @@ for (patternSentence, tag) in xy:
 X_train = np.array(X_train)
 y_train = np.array(y_train)
 
+
+batchSize = 8
+inputSize = len(X_train[0])
+hiddenSize = 8
+outputSize = len(tags)
+learningRate = 0.001
+numEpochs = 1000
+
+#print(inputSize, len(allWords))
+#print(outputSize, tags)
+
+
 class StockBotDataset(Dataset):
     def __init__(self):
         self.numSamples = len(X_train)
@@ -52,23 +64,12 @@ class StockBotDataset(Dataset):
     def __len__(self):
         return self.numSamples
 
-batchSize = 8
-inputSize = len(X_train[0])
-hiddenSize = 8
-outputSize = len(tags)
-learningRate = 0.001
-numEpochs = 1000
-
-#print(input, len(allWords))
-#print(outputSize, tags)
-
 dataset = StockBotDataset()
 trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=2)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
 
-#de facut learning rate si optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learningRate)
 
@@ -90,9 +91,6 @@ def main():
             print(f'epoch {epoch + 1} / {numEpochs}, loss = {loss.item():.4f}')
 
     print(f'final loss, loss = {loss.item():.4f}')
-
-# de facut rezolva RuntimeError: Function AddmmBackward returned an invalid gradient at index 2 - got [23, 3] but expected shape compatible with [8, 3]
-
 
 if __name__ == '__main__':
     main()
