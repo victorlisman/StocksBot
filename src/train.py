@@ -92,5 +92,20 @@ def main():
 
     print(f'final loss, loss = {loss.item():.4f}')
 
+data = {
+    'model_state': model.state_dict(),
+    'input_size': inputSize,
+    'hidden_size': hiddenSize,
+    'output_size': outputSize,
+    'all_words': allWords,
+    'tags': tags
+}
+
+FILE = data.pth
+torch.save(data, FILE)
+
+#write chat implementation in bot.py
+
+
 if __name__ == '__main__':
     main()
