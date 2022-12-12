@@ -65,7 +65,7 @@ class StockBotDataset(Dataset):
         return self.numSamples
 
 dataset = StockBotDataset()
-trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=2)
+trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=4)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
@@ -92,17 +92,19 @@ def main():
 
     print(f'final loss, loss = {loss.item():.4f}')
 
-data = {
-    'model_state': model.state_dict(),
-    'input_size': inputSize,
-    'hidden_size': hiddenSize,
-    'output_size': outputSize,
-    'all_words': allWords,
-    'tags': tags
-}
+    data = {
+        'model_state': model.state_dict(),
+        'input_size': inputSize,
+        'hidden_size': hiddenSize,
+        'output_size': outputSize,
+        'all_words': allWords,
+        'tags': tags
+    }
 
-FILE = data.pth
-torch.save(data, FILE)
+    FILE = "data.pth"
+    torch.save(data, FILE)
+
+    print(f'Training complete. File saved to {FILE}!')
 
 #write chat implementation in bot.py
 
