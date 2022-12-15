@@ -49,9 +49,9 @@ while True:
 
     if prob.item() > 0.75:
         for intent in intents['intents']:
-            if tag == intent["tag"]:
+            if tag == intent['tag']:
                 print(f"{botName}: {random.choice(intent['responses'])}")
-            else:
-                print(f"{botName}: I don't understand...")
+    elif tag not in intents['intents']:
+        print(f"{botName}: I don't understand...")
 
 #fix multiple responses bug
