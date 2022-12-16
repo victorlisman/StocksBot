@@ -51,7 +51,7 @@ while True:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 print(f"{botName}: {random.choice(intent['responses'])}")
-            else:
-                print(f"{botName}: I don't understand...")
+    else:
+        print(f"{botName}: I don't understand...")
 
 #fix multiple responses bug

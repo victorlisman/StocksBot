@@ -65,7 +65,7 @@ class StockBotDataset(Dataset):
         return self.numSamples
 
 dataset = StockBotDataset()
-trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=4)
+trainLoader = DataLoader(dataset=dataset, batch_size=batchSize, shuffle=True, num_workers=0)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = NeuralNet(inputSize, hiddenSize, outputSize).to(device)
