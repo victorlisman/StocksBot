@@ -30,27 +30,26 @@ botName = "Deff"
 print("Let's chat! Type quit to exit!")
 
 while True:
-    sentence = input("You: ")
+    with open("./src/test.txt", 'r') as f:
 
-    if sentence == "quit":
-        break
+        sentence = f.read()
 
-    sentence = tokenize(sentence)
-    X = bagOfWords(sentence, allWords)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+        sentence = tokenize(sentence)
+        X = bagOfWords(sentence, allWords)
+        X = X.reshape(1, X.shape[0])
+        X = torch.from_numpy(X).to(device)
 
-    output = model(X)
+        output = model(X)
 
-    _, predicted = torch.max(output, dim=1)
-    tag = tags[predicted.item()]
+        _, predicted = torch.max(output, dim=1)
+        tag = tags[predicted.item()]
 
-    probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
+        probs = torch.softmax(output, dim=1)
+        prob = probs[0][predicted.item()]
 
-    if prob.item() > 0.75:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                print(f"{botName}: {random.choice(intent['responses'])}")
-    else:
-        print(f"{botName}: I don't understand...")
+        if prob.item() > 0.75:
+            for intent in intents['intents']:
+                if tag == intent["tag"]:
+                    print(f"{botName}: {random.choice(intent['responses'])}")
+        else:
+            print(f"{botName}: I don't understand...")
