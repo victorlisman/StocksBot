@@ -1,6 +1,7 @@
 import torch
 import json
 import random 
+import tradingview_ta
 from model import NeuralNet
 from utils import bagOfWords, tokenize
 
@@ -29,29 +30,28 @@ botName = "Deff"
 print("Let's chat! Type quit to exit!")
 
 while True:
-    sentence = input('You: ')
+    with open("./src/test.txt", 'r', encoding = 'utf-8') as f:
+        sentence = f.read()
 
-    if sentence == "quit":
-        break
-    
-    sentence = tokenize(sentence)
-    X = bagOfWords(sentence, allWords)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+        if sentence == "quit":
+            break
 
-    output = model(X)
+        sentence = tokenize(sentence)
+        X = bagOfWords(sentence, allWords)
+        X = X.reshape(1, X.shape[0])
+        X = torch.from_numpy(X).to(device)
 
-    _, predicted = torch.max(output, dim=1)
-    tag = tags[predicted.item()]
+        output = model(X)
 
-    probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
+        _, predicted = torch.max(output, dim=1)
+        tag = tags[predicted.item()]
 
-    if prob.item() > 0.75:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                print(f"{botName}: {random.choice(intent['responses'])}")
-            else:
-                print(f"{botName}: I don't understand...")
+        probs = torch.softmax(output, dim=1)
+        prob = probs[0][predicted.item()]
 
-#fix multiple responses bug
+        if prob.item() > 0.75:
+            for intent in intents['intents']:
+                if tag == intent["tag"]:
+                    print(f"{botName}: {random.choice(intent['responses'])}")
+        else:
+            print(f"{botName}: I don't understand...")
