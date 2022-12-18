@@ -106,8 +106,5 @@ def main():
 
     print(f'Training complete. File saved to {FILE}!')
 
-#write chat implementation in bot.py
-
-
 if __name__ == '__main__':
     main()
