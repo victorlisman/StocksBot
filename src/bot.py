@@ -51,7 +51,5 @@ while True:
         for intent in intents['intents']:
             if tag == intent['tag']:
                 print(f"{botName}: {random.choice(intent['responses'])}")
-    elif tag not in intents['intents']:
+    else:
         print(f"{botName}: I don't understand...")
-
-#fix multiple responses bug
