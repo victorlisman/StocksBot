@@ -27,12 +27,10 @@ model.load_state_dict(modelState)
 model.eval()
 
 botName = "Deff"
-print("Let's chat! Type quit to exit!")
+#print("Let's chat! Type quit to exit!")
 
 def getResponse(msg):
-        sentence = msg
-
-        sentence = tokenize(sentence)
+        sentence = tokenize(msg)
         X = bagOfWords(sentence, allWords)
         X = X.reshape(1, X.shape[0])
         X = torch.from_numpy(X).to(device)
@@ -48,8 +46,6 @@ def getResponse(msg):
         if prob.item() > 0.75:
             for intent in intents['intents']:
                 if tag == intent["tag"]:
-                    print(f"{botName}: {random.choice(intent['responses'])}")
                     return random.choice(intent['responses'])
-        else:
-            print(f"{botName}: I don't understand...")
-            return "I don't understand..."
+
+        return "I don't understand..."

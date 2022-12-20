@@ -8,11 +8,16 @@ socket.addEventListener('close', (event) => {
     console.log('Disconnected from server', event.data);
 });
 
+function dummy() {
+    socket.send("");
+}
+
 function sendMessage() {
     var message = document.getElementById("id1").value;
     socket.send(message);
     console.log('Message sent to server');
-    return message;
+    dummy();
+
 }
 
 socket.addEventListener('message', (event) => {
