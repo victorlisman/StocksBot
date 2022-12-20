@@ -29,10 +29,8 @@ model.eval()
 botName = "Deff"
 print("Let's chat! Type quit to exit!")
 
-while True:
-    with open("./src/test.txt", 'r') as f:
-
-        sentence = f.read()
+def getResponse(msg):
+        sentence = msg
 
         sentence = tokenize(sentence)
         X = bagOfWords(sentence, allWords)
@@ -51,5 +49,7 @@ while True:
             for intent in intents['intents']:
                 if tag == intent["tag"]:
                     print(f"{botName}: {random.choice(intent['responses'])}")
+                    return random.choice(intent['responses'])
         else:
             print(f"{botName}: I don't understand...")
+            return "I don't understand..."

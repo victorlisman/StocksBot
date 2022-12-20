@@ -37,6 +37,8 @@ async def handler(websocket):
             message = await websocket.recv()
         except websockets.ConnectionClosedOK:
             break
+
+        print(f'You: {message}')
         sentence = message
         sentence = tokenize(sentence)
         X = bagOfWords(sentence, allWords)
@@ -55,8 +57,10 @@ async def handler(websocket):
             for intent in intents['intents']:
                 if tag == intent["tag"]:
                     print(f"{botName}: {random.choice(intent['responses'])}")
+                    await websocket.send(random.choice(intent['responses']))
         else:
             print(f"{botName}: I don't understand...")
+            await websocket.send("I don't understand!")
 
 async def main():
     async with websockets.serve(handler, "", 8001):
