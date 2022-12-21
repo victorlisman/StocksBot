@@ -1,14 +1,16 @@
 import asyncio
 import websockets
+import json
+import logging
 from bot import getResponse
 
 async def handler(websocket):
     async for message in websocket:
-        message = await websocket.recv()
+        sentence = json.loads(message)
 
-        print(f'You: {message}')
+        print(f'You: {sentence}')
         print(f'Bot: {getResponse(message)}')
-        await websocket.send(getResponse(message))
+        await websocket.send(json.dumps(getResponse(message)))
 
 
 async def main():

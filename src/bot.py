@@ -1,7 +1,7 @@
 import torch
 import json
 import random 
-import tradingview_ta
+import yfinance
 from model import NeuralNet
 from utils import bagOfWords, tokenize
 
@@ -31,6 +31,7 @@ botName = "Deff"
 
 def getResponse(msg):
         sentence = tokenize(msg)
+        ticker = sentence.pop()
         X = bagOfWords(sentence, allWords)
         X = X.reshape(1, X.shape[0])
         X = torch.from_numpy(X).to(device)
@@ -45,7 +46,21 @@ def getResponse(msg):
 
         if prob.item() > 0.75:
             for intent in intents['intents']:
-                if tag == intent["tag"]:
+                if tag == intent["tag"] and tag != 'stock_prices':
                     return random.choice(intent['responses'])
+                elif tag == 'stock_prices':
+                    stock = yfinance.Ticker(ticker)
+                    hist = stock.history(period="1d")
+                    return f'The price of {ticker} is {hist["Close"][0]}'
+                
 
         return "I don't understand..."
+
+def main():
+    while True:
+        sentence = input("You: ")
+        print(f'{getResponse(sentence)}')
+
+if __name__ == '__main__':
+    print("Let's chat!")
+    main()
