@@ -28,11 +28,9 @@ model.eval()
 botName = "Deff"
 print("Let's chat! Type quit to exit!")
 
-while True:
-    sentence = input('You: ')
+def getResponse(message):
+    sentence = message
 
-    if sentence == "quit":
-        break
     
     sentence = tokenize(sentence)
     X = bagOfWords(sentence, allWords)
@@ -51,7 +49,7 @@ while True:
         for intent in intents['intents']:
             if tag == intent['tag']:
                 print(f"{botName}: {random.choice(intent['responses'])}")
-    elif tag not in intents['intents']:
+                return random.choice(intent['responses'])
+    else:
         print(f"{botName}: I don't understand...")
-
-#fix multiple responses bug
+        return "I don't understand..."
