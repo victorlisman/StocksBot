@@ -44,7 +44,7 @@ def getResponse(msg):
         probs = torch.softmax(output, dim=1)
         prob = probs[0][predicted.item()]
 
-        if prob.item() > 0.75:
+        if prob.item() > 0.750:
             for intent in intents['intents']:
                 if tag == intent["tag"] and tag != 'stock_prices':
                     return random.choice(intent['responses'])
@@ -54,8 +54,7 @@ def getResponse(msg):
                         hist = stock.history(period="1d")
                         return f'The price of {ticker} is {hist["Close"][0]}'
                     except:
-                        return f'Could not find {ticker}'
-                        
+                        return f'Could not find {ticker}'              
         return "I don't understand..."
 
 def main():

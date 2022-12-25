@@ -41,6 +41,31 @@
                 "1010111000",
                 "I don't know binary!"
             ]
+        },
+        {
+            "tag": "stock_market",
+            "patterns": [
+                "What is the stock market?",
+                "Tell me about the share market!",
+                "I want to hear about the stock market."
+            ],
+            "responses": [
+                "The stock market is a place where people buy and sell stocks.",
+                "A stock market, equity market, or share market is the aggregation of buyers and sellers of stocks (also called shares), which represent ownership claims on businesses; these may include securities listed on a public stock exchange, as well as stock that is only traded privately, such as shares of private companies which are sold to investors through equity crowdfunding platforms. Investment is usually made with an investment strategy in mind."
+            ]
+        },
+        {
+            "tag": "stock_prices",
+            "patterns": [
+                "How much does it cost to buy",
+                "I want to learn about the share price of",
+                "What is the price of"
+            ],
+            "responses": [
+                "The price of",
+                "The share price of",
+                "The stock price of"
+            ]
         }
     ]
 }
