@@ -54,8 +54,7 @@ def getResponse(msg):
                         hist = stock.history(period="1d")
                         return f'The price of {ticker} is {hist["Close"][0]}'
                     except:
-                        return f'Could not find {ticker}'
-                        
+                        return f'Could not find {ticker}'              
         return "I don't understand..."
 
 def main():
