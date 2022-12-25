@@ -1,6 +1,7 @@
 import torch
 import json
 import random 
+import yfinance
 from model import NeuralNet
 from utils import bagOfWords, tokenize
 
@@ -26,30 +27,41 @@ model.load_state_dict(modelState)
 model.eval()
 
 botName = "Deff"
-print("Let's chat! Type quit to exit!")
+#print("Let's chat! Type quit to exit!")
 
-def getResponse(message):
-    sentence = message
+def getResponse(msg):
+        sentence = tokenize(msg)
+        ticker = sentence.pop()
+        X = bagOfWords(sentence, allWords)
+        X = X.reshape(1, X.shape[0])
+        X = torch.from_numpy(X).to(device)
 
-    
-    sentence = tokenize(sentence)
-    X = bagOfWords(sentence, allWords)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+        output = model(X)
 
-    output = model(X)
+        _, predicted = torch.max(output, dim=1)
+        tag = tags[predicted.item()]
 
-    _, predicted = torch.max(output, dim=1)
-    tag = tags[predicted.item()]
+        probs = torch.softmax(output, dim=1)
+        prob = probs[0][predicted.item()]
 
-    probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
-
-    if prob.item() > 0.75:
-        for intent in intents['intents']:
-            if tag == intent['tag']:
-                print(f"{botName}: {random.choice(intent['responses'])}")
-                return random.choice(intent['responses'])
-    else:
-        print(f"{botName}: I don't understand...")
+        if prob.item() > 0.75:
+            for intent in intents['intents']:
+                if tag == intent["tag"] and tag != 'stock_prices':
+                    return random.choice(intent['responses'])
+                elif tag == 'stock_prices':
+                    try:
+                        stock = yfinance.Ticker(ticker)
+                        hist = stock.history(period="1d")
+                        return f'The price of {ticker} is {hist["Close"][0]}'
+                    except:
+                        return f'Could not find {ticker}'
+                        
         return "I don't understand..."
+
+def main():
+    while True:
+        sentence = input("You: ")
+        print(f'{getResponse(sentence)}')
+
+if __name__ == '__main__':
+    main()
