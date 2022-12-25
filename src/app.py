@@ -9,7 +9,7 @@ async def handler(websocket):
         sentence = json.loads(message)
 
         print(f'You: {sentence}')
-        print(f'Bot: {getResponse(message)}')
+        print(f'Bot: {getResponse(sentence)}')
         await websocket.send(json.dumps(getResponse(message)))
 
 

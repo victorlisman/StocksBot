@@ -49,11 +49,13 @@ def getResponse(msg):
                 if tag == intent["tag"] and tag != 'stock_prices':
                     return random.choice(intent['responses'])
                 elif tag == 'stock_prices':
-                    stock = yfinance.Ticker(ticker)
-                    hist = stock.history(period="1d")
-                    return f'The price of {ticker} is {hist["Close"][0]}'
-                
-
+                    try:
+                        stock = yfinance.Ticker(ticker)
+                        hist = stock.history(period="1d")
+                        return f'The price of {ticker} is {hist["Close"][0]}'
+                    except:
+                        return f'Could not find {ticker}'
+                        
         return "I don't understand..."
 
 def main():
@@ -62,5 +64,4 @@ def main():
         print(f'{getResponse(sentence)}')
 
 if __name__ == '__main__':
-    print("Let's chat!")
     main()
