@@ -10,7 +10,7 @@ async def handler(websocket):
 
         print(f'You: {sentence}')
         print(f'Bot: {getResponse(sentence)}')
-        await websocket.send(json.dumps(getResponse(message)))
+        await websocket.send(json.dumps(getResponse(sentence)))
 
 
 async def main():
