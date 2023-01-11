@@ -66,6 +66,19 @@
                 "The share price of",
                 "The stock price of"
             ]
+        },
+        {
+            "tag": "stock_info",
+            "patterns": [
+                "What is the info about",
+                "I want to learn some information about",
+                "What is the information about"
+            ],
+            "responses": [
+                "I searched some information about",
+                "The latest information about:",
+                "Here is some info about:"
+            ]
         }
     ]
 }

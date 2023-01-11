@@ -52,9 +52,16 @@ def getResponse(msg):
                     try:
                         stock = yfinance.Ticker(ticker)
                         hist = stock.history(period="1d")
-                        return f'The price of {ticker} is {hist["Close"][0]}'
+                        return f'The price of {ticker} is {hist["Close"][0]:.2f} USD'
                     except:
-                        return f'Could not find {ticker}'              
+                        return f'Could not find {ticker}'   
+                elif tag == 'stock_info':
+                    try:
+                        stock = yfinance.Ticker(ticker)
+                        news = stock.info['longBusinessSummary']
+                        return random.choice(intent['responses']) + news
+                    except:
+                        return f'Could not find {ticker}'           
         return "I don't understand..."
 
 def main():

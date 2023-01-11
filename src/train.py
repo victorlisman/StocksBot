@@ -46,7 +46,7 @@ inputSize = len(X_train[0])
 hiddenSize = 8
 outputSize = len(tags)
 learningRate = 0.001
-numEpochs = 1000
+numEpochs = 4000
 
 #print(inputSize, len(allWords))
 #print(outputSize, tags)

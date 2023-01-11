@@ -13,9 +13,10 @@ function sendMessage() {
     var message = document.getElementById("id1").value;
     console.log('Message from client ', message);
     socket.send(JSON.stringify(message));
+    document.getElementById("chat-window").innerHTML += "You: " + message + '\n';
 }
 
 socket.addEventListener("message", ({ data }) => {
     console.log("Message from server ", JSON.parse(data));
-    document.getElementById("id2").value = JSON.parse(data);
+    document.getElementById("chat-window").innerHTML += "Bot: " + JSON.parse(data) + '\n';
 });
