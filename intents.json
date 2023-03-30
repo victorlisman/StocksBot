@@ -46,12 +46,28 @@
             "tag": "stock_market",
             "patterns": [
                 "What is the stock market?",
+                "What is the share market?",
                 "Tell me about the share market!",
-                "I want to hear about the stock market."
+                "I want to hear about the stock market.",
+                "Can you explain what the term stock market means?",
+                "Could you provide me with some information about the share market?",
+                "What do you know about the stock market?",
+                "How would you define the stock market?",
+                "What can you tell me about the share market?",
+                "Can you give me an overview of the stock market?",
+                "What is your understanding of the stock market?",
+                "Could you enlighten me about the share market?",
+                "What is the meaning of the stock market?",
+                "I would like to learn more about the stock market. Can you help me with that?"
             ],
             "responses": [
                 "The stock market is a place where people buy and sell stocks.",
-                "A stock market, equity market, or share market is the aggregation of buyers and sellers of stocks (also called shares), which represent ownership claims on businesses; these may include securities listed on a public stock exchange, as well as stock that is only traded privately, such as shares of private companies which are sold to investors through equity crowdfunding platforms. Investment is usually made with an investment strategy in mind."
+                "A stock market, equity market, or share market is the aggregation of buyers and sellers of stocks (also called shares), which represent ownership claims on businesses; these may include securities listed on a public stock exchange, as well as stock that is only traded privately, such as shares of private companies which are sold to investors through equity crowdfunding platforms. Investment is usually made with an investment strategy in mind.",
+                "The stock market is a platform where individuals and institutions can buy and sell stocks, which represent partial ownership in companies.",
+                "An equity market or share market is a marketplace where buyers and sellers exchange stocks or shares, which are ownership claims on businesses. These may include publicly listed securities on a stock exchange or privately traded stock sold to investors through equity crowdfunding platforms. Investment decisions in the stock market are often made with a specific investment strategy in mind to achieve desired financial outcomes.",
+                "The stock market is a market where stocks or shares of ownership in companies are traded between buyers and sellers. This can include securities listed on public stock exchanges or private shares of companies, and investors typically have an investment strategy in place when making investment decisions.",
+                "At its core, the stock market is a place where investors can buy and sell ownership in publicly traded companies. However, it can also include private shares of companies, which can be sold to investors through equity crowdfunding platforms. Investment strategies can play a critical role in guiding investment decisions in the stock market.",
+                "When individuals or institutions purchase and sell stocks, they are participating in the stock market. This can involve publicly traded securities listed on a stock exchange or private shares sold through equity crowdfunding platforms. Investors often have a specific investment strategy in place to guide their decisions in the stock market."
             ]
         },
         {
@@ -59,7 +75,9 @@
             "patterns": [
                 "How much does it cost to buy",
                 "I want to learn about the share price of",
-                "What is the price of"
+                "What is the price of",
+                "What is the stock price of",
+                "What is the share price of"
             ],
             "responses": [
                 "The price of",
