@@ -8,7 +8,7 @@ class NeuralNet(nn.Module):
         self.l2 = nn.Linear(hiddenSize, hiddenSize)
         self.l3 = nn.Linear(hiddenSize, hiddenSize)
         self.l4 = nn.Linear(hiddenSize, numClasses)
-        self.relu = nn.ReLU()
+        self.relu = nn.LeakyReLU()
 
     def forward(self, x):
         out = self.l1(x)
