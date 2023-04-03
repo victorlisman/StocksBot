@@ -61,7 +61,14 @@ def getResponse(msg):
                         news = stock.info['longBusinessSummary']
                         return random.choice(intent['responses']) + news
                     except:
-                        return f'Could not find {ticker}'           
+                        return f'Could not find {ticker}'        
+                elif tag == 'stock_news':
+                    try:
+                        stock = yfinance.Ticker(ticker)
+                        news = stock.news()
+                        return random.choice(intent['responses']) + news   
+                    except:
+                        return f'Could not find {ticker}'
         return "I don't understand..."
 
 def main():

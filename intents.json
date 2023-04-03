@@ -97,6 +97,19 @@
                 "The latest information about:",
                 "Here is some info about:"
             ]
+        },
+        {
+            "tag": "stock_news",
+            "patterns": [
+                "What is the news about",
+                "I want to learn some news about",
+                "What is the latest news about"
+            ],
+            "responses": [
+                "I searched some news about",
+                "The latest news about:",
+                "Here is some news about:"
+            ]
         }
     ]
 }
