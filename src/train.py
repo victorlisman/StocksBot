@@ -41,12 +41,12 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 
-batchSize = 8
+batchSize = 16
 inputSize = len(X_train[0])
-hiddenSize = 8
+hiddenSize = 16
 outputSize = len(tags)
 learningRate = 0.001
-numEpochs = 2000
+numEpochs = 20000
 
 #print(inputSize, len(allWords))
 #print(outputSize, tags)

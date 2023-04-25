@@ -30,6 +30,21 @@
             ]
         },
         {
+            "tag": "apreciation",
+            "patterns": [
+                "Thank you",
+                "Thanks",
+                "Thank you very much",
+                "Thank you so much"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "Anytime!",
+                "I'm here to help!"
+            ]
+        },
+        {
             "tag": "jokes",
             "patterns": [
                 "Tell me a joke",
