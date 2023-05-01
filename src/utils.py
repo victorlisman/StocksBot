@@ -1,5 +1,6 @@
 import nltk
 import numpy as np
+import yfinance
 from nltk.stem.porter import PorterStemmer
 #nltk.download('punkt')
 stemmer = PorterStemmer()
@@ -19,6 +20,20 @@ def bagOfWords(tokenizedSentence, words):
             bag[index] = 1.0
 
     return bag
+
+def getCompanyName(ticker):
+    try:
+        stock = yfinance.Ticker(ticker)
+        return stock.info['longName']
+    except:
+        return f'Could not find {ticker}'
+    
+def getTicker(companyName):
+    try:
+        stock = yfinance.Ticker(companyName)
+        return stock.info['symbol']
+    except:
+        return f'Could not find {companyName}'
 
 # tests
 def main():
