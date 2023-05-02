@@ -3,15 +3,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
     <title>StocksBot</title>
 </head>
 <body>
     <div>
+        <script src="./src/main.js"></script>
         <button onclick="sendMessage()">send</button>
         <input type="text" name="user text" id="id1"/>
-        <script src="./src/main.js"></script>
     </div>
     <pre id="chat-window"></pre>
+
+    <div class="side">
+        <div class="tradingview-widget-container">
+            <div id="tradingview_15486"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript" src="./src/graph.js"> </script>
+        </div>
+    </div>
 
 </body>
 </html>

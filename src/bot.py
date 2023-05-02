@@ -58,6 +58,7 @@ def getResponse(msg):
                     try:
                         stock = yfinance.Ticker(ticker)
                         hist = stock.history(period="1d")
+        
                         return f'The price of {getCompanyName(ticker)} is {hist["Close"][0]:.2f} USD'
                     
                     except:
