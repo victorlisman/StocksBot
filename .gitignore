@@ -131,5 +131,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Training files
+*.pth
+*.json
+
 # Test files
-/test.txt
+*.txt
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.svg

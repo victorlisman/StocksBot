@@ -1,7 +1,54 @@
+html {
+    background-image: linear-gradient(
+        to left,
+        hsl(224, 28%, 10%),
+        hsl(0, 74%, 36%)
+    );
+    transition: background-image 0.5s linear;
+}
+
+.logo {
+    width: 5%;
+    height: 5%;
+    float: left;
+    margin-bottom: 150px;
+    background-size: contain;
+}
+
+.nav-links {
+    float: right;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.nav-links li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 20px;
+}
+
 body {
     background-color: 131722;
 }
 
+
 .side {
     float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.chat {
+    float: left;
+    width: 50%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.clear {
+    clear: both;
 }

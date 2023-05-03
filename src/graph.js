@@ -3,8 +3,8 @@ symbol = "NASDAQ:" + "AAPL"
 
 new TradingView.widget(
     {
-    "width": 980,
-    "height": 610,
+    "width": 800,
+    "height": 600,
     "symbol": symbol,
     "interval": "D",
     "timezone": "Europe/Bucharest",
