@@ -132,8 +132,8 @@ dmypy.json
 .pyre/
 
 # Training files
-*.pth
-*.json
+.pth
+.json
 
 # Test files
 *.txt
