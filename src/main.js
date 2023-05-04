@@ -12,13 +12,17 @@ socket.addEventListener('close', (event) => {
 
 function sendMessage() {
     var message = document.getElementById("id1").value;
-    console.log('Message from client ', message);
+    var chatBox = document.getElementById("chat-window");
+    var newMessage = document.createElement("div");
+    newMessage.style.whiteSpace = "pre-wrap";
+    newMessage.innerHTML = "You: " + message;
+    chatBox.appendChild(newMessage);
     socket.send(JSON.stringify(message));
-    document.getElementById("chat-window").innerHTML += "You: " + message + '\n';
-    
+    console.log('Message from client ', message);
+    document.getElementById("id1").value = "";    
 }
 
 socket.addEventListener("message", ({ data }) => {
     console.log("Message from server ", JSON.parse(data));
-    document.getElementById("chat-window").innerHTML += "Bot: " + JSON.parse(data) + '\n';
+    document.getElementById("chat-window").innerHTML += "\nBot: " + JSON.parse(data) + '\n';
 });

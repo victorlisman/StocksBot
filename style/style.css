@@ -81,8 +81,43 @@ body {
     margin-bottom: 10px;
 }
 
+.input-wrapper input {
+    width: 700px;
+    margin-right: 10px;
+    height: 40px;
+    background-color: rgb(19, 23, 34);
+    color: rgb(255, 255, 255);
+    padding: 0px;
+    border: none;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+}
+
 .input-wrapper button {
     margin-left: auto;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(19, 23, 34);
+    color: rgb(255, 255, 255);
+    padding: 0px;
+    border: none;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+}
+
+.portofolio {
+    margin-top: 25px;
+    float: right;
+    width: 100%;
+    height: 406px;
+    color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+    position: relative;
+
 }
 
 .clear {
