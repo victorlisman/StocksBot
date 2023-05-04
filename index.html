@@ -38,22 +38,34 @@
     <div class="side">
         <div class="tradingview-widget-container">
             <div id="tradingview_15486"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
             <script type="text/javascript" src="./src/graph.js"> </script>
         </div>
         
-        <div class="portofolio">
-    
+        <div class="portofolio" id="portItems">
+            <div class="title">Portofolio</div>
+            <button onclick="addToPortofolio()">+</button>
+            <p class="clear"></p>
+            <dialog id="myModal">
+                <button id="close">Close</button>
+                <input type="text" name="StockName" id="sname">
+                <input type="text" name="StockPrice" id="sprice">
+                <input type="text" name="StockQuantity" id="squantity">
+                <button onclick="addStock()" id="addS">Add</button>
+
+            </dialog>
+
         </div>
     </div>
 
     <p class="clear"></p>
 
+    <footer>
+        <p>StocksBot v1</p>
+        <p>Lisman Victor - SCSS</p>
+    </footer>
 
 </body>
 
-<footer>
-    
-</footer>
+
 </html>

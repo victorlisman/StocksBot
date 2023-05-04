@@ -26,3 +26,46 @@ socket.addEventListener("message", ({ data }) => {
     console.log("Message from server ", JSON.parse(data));
     document.getElementById("chat-window").innerHTML += "\nBot: " + JSON.parse(data) + '\n';
 });
+
+document.getElementById("id1").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        sendMessage();
+    }
+});
+
+function addToPortofolio() {
+    document.getElementById("myModal").style.display = "block";
+    var modal = document.getElementById("myModal");
+    var button = document.getElementById("close");
+    var addStock = document.getElementById("addS");
+
+    button.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    addStock.onclick = function() {
+        var stockName = document.getElementById("sname").value;
+        var stockPrice = document.getElementById("sprice").value;
+        var stockQuantity = document.getElementById("squantity").value;
+        var stock = {
+            "stockName": stockName,
+            "stockPrice": stockPrice,
+            "stockQuantity": stockQuantity
+        }
+
+        var newStock = document.createElement("div");
+        newStock.style.whiteSpace = "pre-wrap";
+        newStock.style.margin = "10px";
+        newStock.innerHTML = "Stock Name: " + stockName + " | " + "Stock Price: " + stockPrice + " | " + "Stock Quantity: " + stockQuantity;
+        document.getElementById("portItems").appendChild(newStock);
+
+        document.getElementById("sname").value = "";
+        document.getElementById("sprice").value = "";
+        document.getElementById("squantity").value = "";
+        
+        modal.style.display = "none";
+
+
+    }
+}

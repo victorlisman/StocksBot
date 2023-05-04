@@ -28,6 +28,7 @@ body {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -54,6 +55,7 @@ body {
     width: 49%;
     height: 1000px;
     color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 0.5px;
@@ -87,6 +89,7 @@ body {
     height: 40px;
     background-color: rgb(19, 23, 34);
     color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;;
     padding: 0px;
     border: none;
     border-style: solid;
@@ -100,6 +103,7 @@ body {
     width: 40px;
     background-color: rgb(19, 23, 34);
     color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
     padding: 0px;
     border: none;
     border-style: solid;
@@ -111,13 +115,64 @@ body {
     margin-top: 25px;
     float: right;
     width: 100%;
-    height: 406px;
+    height: 374px;
     color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 0.5px;
     position: relative;
 
+}
+
+.title {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.portofolio button {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(19, 23, 34);
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    border: none;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+    float: right;
+    height: 20px;
+    width: 20px;
+}
+
+.portofolio dialog {
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.25rem;
+    z-index: 10;
+    width: 800px;
+    height: 200px;
+    background-color: rgb(19, 23, 34);
+}
+
+.portofolio dialog > button {
+    font-size: 10px;
+    height: auto;
+    width: auto;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    margin-top: calc(170px / 2);
+    color: white;
+    text-align: center;
+    align-items: center;
 }
 
 .clear {
