@@ -1,10 +1,9 @@
-html {
+body {
     background-image: linear-gradient(
         to left,
-        hsl(224, 28%, 10%),
-        hsl(0, 74%, 36%)
+        rgb(19, 23, 34),
+        rgb(65, 41, 41)
     );
-    transition: background-image 0.5s linear;
 }
 
 .logo {
@@ -38,15 +37,52 @@ body {
 
 .side {
     float: right;
-    width: 50%;
+    width: 49%;
     height: 100%;
+}
+
+.tradingview-widget-container {
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+    width: 100%;
+    background-color: rgb(19, 23, 34);
 }
 
 .chat {
     float: left;
-    width: 50%;
-    height: 100%;
+    width: 49%;
+    height: 1000px;
     color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+    position: relative;
+}
+  
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.chat-box {
+    align-self: flex-start;
+    margin-left: 10px;
+    word-break: break-all;
+}
+  
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.input-wrapper button {
+    margin-left: auto;
 }
 
 .clear {

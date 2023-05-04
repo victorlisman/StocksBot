@@ -12,6 +12,8 @@
         <a href="./index.html"><img src="img/logo2.svg" alt="Logo"></a>
     </div>
     <ul class="nav-links">
+        <li><a href="./Portofolio">Portofolio</a></li>
+        <li><a href="./chat-history">History</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./login.html">Login</a></li>
@@ -20,15 +22,18 @@
     <p class="clear"></p>
 
 <body>
-    <div>
-        <script src="./src/main.js"></script>
-        <button onclick="sendMessage()">send</button>
-        <input type="text" name="user text" id="id1"/>
-    </div>
-
     <div class="chat">
-        <pre id="chat-window"></pre>
-    </div>
+        <div class="chat-container">
+          <div id="chat-window" class="chat-box"></div>
+          <div class="input-wrapper">
+            <input type="text" name="user text" id="id1"/>
+            <button onclick="sendMessage()">send</button>
+          </div>
+        </div>
+        <script src="./src/main.js"></script>
+      </div>
+      
+      
 
     <div class="side">
         <div class="tradingview-widget-container">
@@ -42,4 +47,8 @@
     <p class="clear"></p>
 
 </body>
+
+<footer>
+    
+</footer>
 </html>
