@@ -50,39 +50,41 @@ def getResponse(msg):
         specialTags = ['stock_prices', 'stock_info', 'stock_news']
 
         if prob.item() > 0.750:
-            for intent in intents['intents']:
-                if tag == intent["tag"] and tag not in specialTags:
-                    return random.choice(intent['responses'])
-                
-                elif tag == 'stock_prices':
-                    try:
-                        stock = yfinance.Ticker(ticker)
-                        hist = stock.history(period="1d")
-        
-                        return f'The price of {getCompanyName(ticker)} is {hist["Close"][0]:.2f} USD'
+            for intent in intents["intents"]:
+                if tag == intent["tag"]:
+                    if tag in specialTags:
+                        match tag:
+                            case 'stock_prices':
+                                try:
+                                    stock = yfinance.Ticker(ticker)
+                                    hist = stock.history(period="1d")
                     
-                    except:
-                        return f'Could not find {ticker}'   
+                                    return f'The price of {getCompanyName(ticker)} is {hist["Close"][0]:.2f} USD'
+                                
+                                except:
+                                    return f'Could not find {ticker}'
+                                
+                            case 'stock_info':
+                                try:
+                                    stock = yfinance.Ticker(ticker)
+                                    news = stock.info['longBusinessSummary']
+                                    return f'{ random.choice(intent["responses"]) } { getCompanyName(ticker) }: { news }'
+                                
+                                except:
+                                    return f'Could not find {ticker}'
+                                
+                            case 'stock_news':
+                                try:
+                                    stock = yfinance.Ticker(ticker)
+                                    news = stock.news()
+                                    return random.choice(intent['responses']) + news   
+                                
+                                except:
+                                    return f'Could not find {ticker}'
+                        
+                    else:
+                        return random.choice(intent['responses'])
                     
-                elif tag == 'stock_info':
-                    try:
-                        stock = yfinance.Ticker(ticker)
-                        news = stock.info['longBusinessSummary']
-                        return news
-                    
-                    except:
-                        return f'Could not find {ticker}'        
-                    
-                elif tag == 'stock_news':
-                    try:
-                        stock = yfinance.Ticker(ticker)
-                        news = stock.news()
-                        return random.choice(intent['responses']) + news   
-                    
-                    except:
-                        return f'Could not find {ticker}'
-                    
-        return "I don't understand..."
 
 def main():
     while True:
